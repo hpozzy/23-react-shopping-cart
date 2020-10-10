@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "axios": "^0.20.0",
+    "json-server": "^0.16.2",
+    "react-modal": "^3.11.2",
+    "react-responsive-modal": "^5.1.1"
+  }
+}
