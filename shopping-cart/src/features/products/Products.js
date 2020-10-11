@@ -19,6 +19,21 @@ export function Products() {
     }
   }
 
+  function handleClick2() {
+    setActiveModal(false)
+  }
+
+  let prices = cart.map((item) => item.price)
+
+  function sum(num1, num2) {
+    return num1 + num2
+  }
+  let total = prices.reduce(sum, 0)
+
+  let quantity = cart.map((item) => {
+    return item.length
+  })
+
   return (
     <div>
       <div className="container">
@@ -84,7 +99,9 @@ export function Products() {
                 </div>
 
                 <div>
-                  <button className="addToCart">Add to cart</button>
+                  <button onClick={handleClick2} className="addToCart">
+                    Add to cart
+                  </button>
                 </div>
               </div>
             ))}
@@ -120,13 +137,12 @@ export function Products() {
                 <div className="cart-products-layout-2">
                   <p>{item.title}</p>
                   <p className="item-style">{item.style}</p>
+                  <p>Quantity:{item.quantity} </p>
                 </div>
-
-                {/* <button onClick={() => dispatch(subitem(item))}>X</button> */}
 
                 <div className="cart-products-layout-3">
                   <p>
-                    {item.currency}
+                    {item.currencyFormat}
                     {item.price.toFixed(2)}
                   </p>
                   <div>
@@ -139,8 +155,10 @@ export function Products() {
           </div>
 
           <div className="checkoutTotal">
-            <div>Subtotal</div>
-            <div>!20.20</div>
+            <div className="subtotal">
+              <div className="subtotal-a">Subtotal</div>
+              <div className="subtotal-b"> ${total.toFixed(2)}</div>
+            </div>
 
             <div className="checkoutButton">
               <button className="checkoutButton2">CHECKOUT</button>
