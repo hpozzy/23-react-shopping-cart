@@ -121,7 +121,8 @@ export function Products() {
         <div className="interiorCart">
           <div className="headerCart">
             <h2>
-              Cart <i className="far fa-shopping-cart"></i>
+              Cart <span className="cartAmount">{cart.length}</span>{" "}
+              <i className="far fa-shopping-cart"></i>
             </h2>
           </div>
 

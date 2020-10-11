@@ -331,3 +331,13 @@
   color: #eabf00;
   font-size: 24px;
 }
+.cartAmount {
+  color: black;
+  background-color: #eabf00;
+  border: 1px solid #eabf00;
+  border-radius: 40%;
+  position: absolute;
+  font-size: 12px;
+  bottom: 87%;
+  left: 217px;
+}
