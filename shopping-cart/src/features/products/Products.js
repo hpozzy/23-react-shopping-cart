@@ -150,7 +150,7 @@ export function Products() {
                 <div className="cart-products-layout-3">
                   <p>
                     {item.currencyFormat}
-                    {item.price.toFixed(2)}
+                    {(item.price * item.quantity).toFixed(2)}
                   </p>
                   <div>
                     <button
@@ -182,7 +182,11 @@ export function Products() {
           <div className="checkoutTotal">
             <div className="subtotal">
               <div className="subtotal-a">Subtotal</div>
-              <div className="subtotal-b"> ${total.toFixed(2)}</div>
+
+              <div className="subtotal-b">
+                {" "}
+                ${(total * quantity).toFixed(2)}
+              </div>
             </div>
 
             <div className="checkoutButton">
