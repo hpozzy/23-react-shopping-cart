@@ -10,10 +10,8 @@ export const cartSlice = createSlice({
   reducers: {
     additem: (state, action) => {
       const newItem = { ...action.payload }
-      // let quantity = 1
       const foundItem = state.products.find((item) => item.id == newItem.id)
       if (foundItem) {
-        console.log(newItem)
         foundItem.quantity = foundItem.quantity + 1
         state.products = state.products.map((item) =>
           item.id === foundItem.id ? foundItem : item
@@ -21,9 +19,6 @@ export const cartSlice = createSlice({
       } else {
         state.products.push({ ...newItem, quantity: 1 })
       }
-      // newItem.quantity = quantity
-      // state.products.push(newItem)
-      // state.products = state.products.map(item => item.id === newItem.id ? newItem : item)
     },
     subitem: (state, action) => {
       state.products = state.products.filter(
@@ -34,7 +29,6 @@ export const cartSlice = createSlice({
       const newItem = { ...action.payload }
       const foundItem = state.products.find((item) => item.id == newItem.id)
       if (foundItem) {
-        console.log(newItem)
         foundItem.quantity = foundItem.quantity + 1
         state.products = state.products.map((item) =>
           item.id === foundItem.id ? foundItem : item
