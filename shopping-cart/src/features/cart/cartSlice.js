@@ -30,10 +30,41 @@ export const cartSlice = createSlice({
         (cart) => cart.id !== action.payload
       )
     },
+    addQuantity: (state, action) => {
+      const newItem = { ...action.payload }
+      const foundItem = state.products.find((item) => item.id == newItem.id)
+      if (foundItem) {
+        console.log(newItem)
+        foundItem.quantity = foundItem.quantity + 1
+        state.products = state.products.map((item) =>
+          item.id === foundItem.id ? foundItem : item
+        )
+      } else {
+        state.products.push({ ...newItem, quantity: 1 })
+      }
+    },
+    subtractQuantity: (state, action) => {
+      const newItem = { ...action.payload }
+      const foundItem = state.products.find((item) => item.id == newItem.id)
+      if (foundItem) {
+        console.log(newItem)
+        foundItem.quantity = foundItem.quantity - 1
+        state.products = state.products.map((item) =>
+          item.id === foundItem.id ? foundItem : item
+        )
+      } else {
+        state.products.push({ ...newItem, quantity: 1 })
+      }
+    },
   },
 })
 
-export const { additem, subitem } = cartSlice.actions
+export const {
+  additem,
+  subitem,
+  addQuantity,
+  subtractQuantity,
+} = cartSlice.actions
 
 export const selectCart = (state) => state.cart.products
 

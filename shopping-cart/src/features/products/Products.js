@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { getProducts, selectProducts } from "./productsSlice"
-import { selectCart, additem, subitem } from "../cart/cartSlice"
+import {
+  selectCart,
+  additem,
+  subitem,
+  addQuantity,
+  subtractQuantity,
+} from "../cart/cartSlice"
 
 export function Products() {
   const products = useSelector(selectProducts)
@@ -147,8 +153,26 @@ export function Products() {
                     {item.price.toFixed(2)}
                   </p>
                   <div>
-                    <button className="item-quantity-btn disabled">-</button>{" "}
-                    <button className="item-quantity-btn">+</button>{" "}
+                    <button
+                      onClick={
+                        item.quantity === 1
+                          ? null
+                          : () => dispatch(subtractQuantity(item))
+                      }
+                      className={
+                        item.quantity > 1
+                          ? "item-quantity-btn"
+                          : "item-quantity-btn disabled"
+                      }
+                    >
+                      -
+                    </button>{" "}
+                    <button
+                      onClick={() => dispatch(addQuantity(item))}
+                      className="item-quantity-btn"
+                    >
+                      +
+                    </button>{" "}
                   </div>
                 </div>
               </div>

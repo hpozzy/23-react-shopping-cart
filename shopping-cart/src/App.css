@@ -203,7 +203,6 @@
 
 .headerCart {
   height: 10%;
-  border: 1px solid white;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -338,6 +337,6 @@
   border-radius: 40%;
   position: absolute;
   font-size: 12px;
-  bottom: 87%;
-  left: 217px;
+  bottom: 88%;
+  left: 248px;
 }
